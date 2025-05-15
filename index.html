@@ -1,271 +1,160 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cherta4242's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>장진우의 포트폴리오</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
       margin: 0;
+      background-color: #f8f9fa;
+      color: #212529;
+      display: flex;
+    }
+    /* 사이드바 */
+    nav {
+      width: 220px;
+      min-height: 100vh;
+      background-color: #343a40;
+      padding: 2rem 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      color: white;
+    }
+    nav h1 {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
       padding: 0;
     }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
+    nav ul li {
+      margin-bottom: 1rem;
     }
-
-    header.header1 {
-      background: linear-gradient(to right, #330099, #6b5b95);
+    nav ul li a {
       color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    main {
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      margin-bottom: 40px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 2.2rem;
-      color: #330099;
-    }
-
-    h2 {
-      border-left: 5px solid #330099;
-      padding-left: 10px;
-      margin-bottom: 10px;
-      color: #330099;
-    }
-
-    h3 {
-      margin-top: 20px;
-      margin-bottom: 8px;
-      color: #444;
-    }
-
-    section {
-      margin-bottom: 30px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    .sidebar1, .sidebar2 {
-      position: fixed;
-      top: 30%;
-      left: 30px;
-      background-color: #330099;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      z-index: 999;
-    }
-
-    .sidebar2 {
-      background-color: #0066cc;
-      display: none;
-    }
-
-    .likecolor {
-      color: #330099;
+      text-decoration: none;
       font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* 본문 */
+    main {
+      margin-left: 240px; /* 사이드바 넓이 + 여유 */
+      max-width: 960px;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      border-bottom: 2px solid #343a40;
+      padding-bottom: 0.5rem;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
     }
 
     footer {
+      margin-left: 240px;
+      padding: 1rem;
+      background-color: #343a40;
+      color: white;
       text-align: center;
-      padding: 20px;
-      background-color: #fff;
-      border-top: 1px solid #ddd;
-      color: #555;
     }
 
+    /* 반응형 */
     @media (max-width: 768px) {
-      .sidebar1, .sidebar2 {
-        display: none;
+      body {
+        flex-direction: column;
+      }
+      nav {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        text-align: center;
+      }
+      main, footer {
+        margin-left: 0;
+        padding: 1rem;
       }
     }
   </style>
-
-  <script>
-    function toggleSidebar() {
-      const sidebar1 = document.querySelector(".sidebar1");
-      const sidebar2 = document.querySelector(".sidebar2");
-      const layout2 = document.querySelector(".layout2");
-      const layout2Top = layout2.getBoundingClientRect().top;
-
-      if (layout2Top < 100) {
-        sidebar1.style.display = "none";
-        sidebar2.style.display = "block";
-      } else {
-        sidebar1.style.display = "block";
-        sidebar2.style.display = "none";
-      }
-    }
-
-    window.addEventListener("scroll", toggleSidebar);
-    window.addEventListener("DOMContentLoaded", toggleSidebar);
-  </script>
 </head>
-
 <body>
-  <header class="header1">
-    <h1>CHERTA4242's Portfolio</h1>
-    <p>열정적인 웹 개발자 지망생의 이야기</p>
-  </header>
 
-  <h1>자기소개</h1>
-  <div class="layout1">
-    <main>
-      <section>
-        <h2>간단한 소개</h2>
-        <p>게임을 좋아하는 평범한 대학생입니다. 사람들과 웃으며 지내는 것을 좋아합니다.</p>
-      </section>
+  <!-- 사이드바 -->
+  <nav>
+    <h1>장진우 포트폴리오</h1>
+    <ul>
+      <li><a href="#intro">자기소개</a></li>
+      <li><a href="#skills">기술 스택</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#education">수강 과목</a></li>
+      <li><a href="#misc">기타 정보</a></li>
+    </ul>
+  </nav>
 
-      <section>
-        <h2>관심 분야</h2>
-        <ul>
-          <li>게임</li>
-          <li>웹 개발</li>
-          <li>UI/UX 디자인</li>
-        </ul>
-      </section>
+  <!-- 본문 -->
+  <main>
+    <section id="intro">
+      <h2>자기소개</h2>
+      <p>게임을 좋아하는 평범한 대학생입니다. 항상 모든 사람과 웃으며 지내는 것을 좋아합니다.</p>
+    </section>
 
-      <section>
-        <h2>개인 정보</h2>
-        <ul>
-          <li>성별: 남</li>
-          <li>이름: 장진우</li>
-          <li>연락처: 010-XXXX-XXXX</li>
-          <li>나이: 24</li>
-        </ul>
-      </section>
+    <section id="skills">
+      <h2>기술 스택</h2>
+      <ul>
+        <li><strong>프로그래밍 언어:</strong> Java, JavaScript, HTML</li>
+        <li><strong>프론트엔드:</strong> HTML, CSS, React</li>
+        <li><strong>백엔드:</strong> 없음</li>
+        <li><strong>데이터베이스:</strong> HeidiSQL</li>
+        <li><strong>도구:</strong> GitHub, Figma</li>
+        <li><strong>IDE:</strong> Eclipse, Visual Studio Code, Android Studio</li>
+      </ul>
+    </section>
 
-      <section>
-        <h2>좋아하는 것</h2>
-        <ul>
-          <li><b>게임</b></li>
-          <li><span class="likecolor">이런 색깔</span></li>
-          <li>유튜버 <b>김블루</b>와 가수 <b>Hebi</b></li>
-          <li><b>향수</b>, <b>전자기기</b></li>
-        </ul>
-      </section>
+    <section id="projects">
+      <h2>프로젝트 경험</h2>
+      <p>현재까지 참여한 프로젝트는 없습니다.</p>
+    </section>
 
-      <section>
-        <h2>싫어하는 것</h2>
-        <ul>
-          <li><b>표고버섯, 조개류</b></li>
-          <li>난잡한 공간</li>
-        </ul>
-      </section>
-    </main>
+    <section id="education">
+      <h2>학업 성과 및 수강 과목</h2>
+      <ul>
+        <li><strong>1학년:</strong> Frontend Programming - 수강 완료, 성적 미흡</li>
+        <li><strong>2학년:</strong> Frontend Programming - 수강 완료, 성적 미흡</li>
+      </ul>
+    </section>
 
-    <aside class="sidebar1">
-      <h3>자기소개</h3>
-    </aside>
-
-    <aside class="sidebar2">
-      <h3>기술 스택</h3>
-    </aside>
-  </div>
-
-  <h1>기술 스택</h1>
-  <div class="layout2">
-    <main>
-      <section>
-        <h2>프로그래밍 언어</h2>
-        <ul>
-          <li>HTML</li>
-          <li>Java</li>
-          <li>JavaScript</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Frontend</h2>
-        <ul>
-          <li>HTML/CSS</li>
-          <li>React</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Backend</h2>
-        <ul>
-          <li>현재 없음</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Database</h2>
-        <ul>
-          <li>HeidiSQL</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Tools</h2>
-        <ul>
-          <li>Git/GitHub</li>
-          <li>Figma</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>IDE</h2>
-        <ul>
-          <li>Eclipse</li>
-          <li>Visual Studio Code</li>
-          <li>Android Studio</li>
-        </ul>
-      </section>
-    </main>
-  </div>
-
-  <h1>프로젝트 경험</h1>
-  <div class="layout3">
-    <main>
-      <section>
-        <h2>없습니다</h2>
-        <p>하지만 앞으로 다양한 프로젝트에 참여할 계획입니다!</p>
-      </section>
-    </main>
-  </div>
-
-  <h1>학업 성과 및 수강 과목</h1>
-  <div class="layout4">
-    <main>
-      <section>
-        <h2>학업 성과</h2>
-        <ul>
-          <li><b>1학년</b> - Frontend Programming<br>수강: 완료 / 점수: 미흡</li>
-          <li><b>2학년</b> - Frontend Programming<br>수강: 완료 / 점수: 매우 미흡 😅</li>
-        </ul>
-      </section>
-    </main>
-  </div>
+    <section id="misc">
+      <h2>기타 정보</h2>
+      <ul>
+        <li><strong>성별:</strong> 남</li>
+        <li><strong>이름:</strong> 장진우</li>
+        <li><strong>연락처:</strong> 010-XXXX-XXXX</li>
+        <li><strong>나이:</strong> 24</li>
+        <li><strong>좋아하는 것:</strong> 게임, 특정 색상(#330099), 유튜버 김블루, 가수 Hebi, 향수, 전자기기</li>
+        <li><strong>싫어하는 것:</strong> 표고버섯과 조개류, 난잡한 공간</li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Cherta4242 | 감사합니다 :)
+    &copy; 2025 장진우. 모든 권리 보유.
   </footer>
+
 </body>
 </html>
