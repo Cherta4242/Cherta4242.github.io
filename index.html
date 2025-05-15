@@ -1,286 +1,271 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cherta4242's writing</title>
-    <style>
-        .layout1 {
-            display: flex;
-            margin-top: 20px;
-        }
-        .layout2 {
-            display: flex;
-            margin-top: 20px;
-        }
-        .layout3{
-            display: flex;
-            margin-top: 20px;
-        }
-        .layout4{
-            display: flex;
-            margin-top: 20px;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e9ecef;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        h1{
-            text-align: center;
-        }
-        .header1 {
-            background-color: black;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        .header2{
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            background-color: #e9ecef;
-            color: #e9ecef;
-            margin: 0;
-            padding: 0;
-        }
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: white;
-        }
-        .sidebar1 {
-            position: fixed;
-            top: auto;
-            left: 50px;
-            color: white;
-            background-color: blue;
-            border-radius: 25px;
-        }
-        .sidebar2 {
-            position: fixed;
-            top: auto;
-            left: 50px;
-            color: white;
-            background-color: #330099;
-            border-radius: 25px;
-            
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: white;
-            margin-top: 20px;
-        }
-        .likecolor{
-            color: #330099;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cherta4242's Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <script>
-        // 사이드바 상태를 토글하는 함수 정의
-        function toggleSidebar() {
-        // 클래스명이 .sidebar1인 요소를 가져와 변수에 저장
-        const sidebar1 = document.querySelector(".sidebar1");
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        // 클래스명이 .sidebar2인 요소를 가져와 변수에 저장
-        const sidebar2 = document.querySelector(".sidebar2");
+    header.header1 {
+      background: linear-gradient(to right, #330099, #6b5b95);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-        // 클래스명이 .layout2인 요소를 가져와 변수에 저장
-        const layout2 = document.querySelector(".layout2");
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
 
-        // layout2 요소의 현재 뷰포트(top) 위치 값을 가져옴
-        // 이 값이 작아질수록 화면 상단에 가까워짐 (스크롤이 아래로 내려갔다는 의미)
-        const layout2Top = layout2.getBoundingClientRect().top;
+    h1 {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2.2rem;
+      color: #330099;
+    }
 
-        // layout2의 top 위치가 100px보다 위(작을 경우)라면
-        if (layout2Top < 100) {
-            // sidebar1은 숨기고
-            sidebar1.style.display = "none";
-            // sidebar2는 보이게 설정
-            sidebar2.style.display = "block";
-        } else {
-            // 반대로 layout2가 아직 화면 위쪽에 도달하지 않았다면
-            // sidebar1은 보이고
-            sidebar1.style.display = "block";
-            // sidebar2는 숨김
-            sidebar2.style.display = "none";
-        }
-        }
+    h2 {
+      border-left: 5px solid #330099;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      color: #330099;
+    }
 
-        // 페이지에서 스크롤이 발생할 때마다 toggleSidebar 함수 실행
-        window.addEventListener("scroll", toggleSidebar);
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #444;
+    }
 
-        // 페이지가 처음 로딩될 때도 toggleSidebar를 한 번 실행해서 초기 상태 반영
-        window.addEventListener("DOMContentLoaded", toggleSidebar);
-      </script>
+    section {
+      margin-bottom: 30px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .sidebar1, .sidebar2 {
+      position: fixed;
+      top: 30%;
+      left: 30px;
+      background-color: #330099;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .sidebar2 {
+      background-color: #0066cc;
+      display: none;
+    }
+
+    .likecolor {
+      color: #330099;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar1, .sidebar2 {
+        display: none;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar1 = document.querySelector(".sidebar1");
+      const sidebar2 = document.querySelector(".sidebar2");
+      const layout2 = document.querySelector(".layout2");
+      const layout2Top = layout2.getBoundingClientRect().top;
+
+      if (layout2Top < 100) {
+        sidebar1.style.display = "none";
+        sidebar2.style.display = "block";
+      } else {
+        sidebar1.style.display = "block";
+        sidebar2.style.display = "none";
+      }
+    }
+
+    window.addEventListener("scroll", toggleSidebar);
+    window.addEventListener("DOMContentLoaded", toggleSidebar);
+  </script>
 </head>
-    
-
 
 <body>
-<!--첫 번째 레이아웃, 자기소개 칸-->
-    <header class="header1">
-        <h1>PortPolio</h1>
-    </header>
+  <header class="header1">
+    <h1>CHERTA4242's Portfolio</h1>
+    <p>열정적인 웹 개발자 지망생의 이야기</p>
+  </header>
 
-    <h1><b>간단한 자기소개</b></h1>
-    <div class="layout1">
-        <main>
-            <section>
-                <h2>간단한 소개</h2>
-                <p>게임을 좋아하는 평범한 대학생입니다.<br>
-                항상 모든 사람과 웃으며 지내는걸 좋아한답니다.</p>
-            </section>
+  <h1>자기소개</h1>
+  <div class="layout1">
+    <main>
+      <section>
+        <h2>간단한 소개</h2>
+        <p>게임을 좋아하는 평범한 대학생입니다. 사람들과 웃으며 지내는 것을 좋아합니다.</p>
+      </section>
 
-            <section>
-                <h2>관심 분야</h2>
-                <ul>
-                    <li>게임</li>
-                    <li>웹 개발</li>
-                    <li>UI/UX 디자인</li>
-                </ul>
-            </section>
+      <section>
+        <h2>관심 분야</h2>
+        <ul>
+          <li>게임</li>
+          <li>웹 개발</li>
+          <li>UI/UX 디자인</li>
+        </ul>
+      </section>
 
-            <section>
-            <h2>개인 정보</h2>
-                <ul>
-                    <li>성별: 남</li>
-                    <li>이름: 장진우</li>
-                    <li>연락처: 010-XXXX-XXXX</li>
-                    <li>나이: 24</li>
-                </ul>
-            </section>
+      <section>
+        <h2>개인 정보</h2>
+        <ul>
+          <li>성별: 남</li>
+          <li>이름: 장진우</li>
+          <li>연락처: 010-XXXX-XXXX</li>
+          <li>나이: 24</li>
+        </ul>
+      </section>
 
-            <section>
-                <h2>좋아하는 것</h2>
-                <ul>
-                    <li><b>게임</b></li>
-                    <li><b><span class="likecolor">이런 색깔</span></b></li>
-                    <li>유튜버 <b>김블루</b>와  가수 <b>Hebi</b></li>
-                    <li><b>향수</b></li>
-                    <li><b>전자기기</b></li>
-                </ul>
-            </section>
+      <section>
+        <h2>좋아하는 것</h2>
+        <ul>
+          <li><b>게임</b></li>
+          <li><span class="likecolor">이런 색깔</span></li>
+          <li>유튜버 <b>김블루</b>와 가수 <b>Hebi</b></li>
+          <li><b>향수</b>, <b>전자기기</b></li>
+        </ul>
+      </section>
 
-            <section>
-                <h2>싫어하는 것</h2>
-                <ul>
-                    <li><b>표고버섯과 조개류</b></li>
-                    <li>난잡한 공간</li>
-                </ul>
-            </section>
-        </main>
+      <section>
+        <h2>싫어하는 것</h2>
+        <ul>
+          <li><b>표고버섯, 조개류</b></li>
+          <li>난잡한 공간</li>
+        </ul>
+      </section>
+    </main>
 
-        <aside class="sidebar1">
-            <h3>자기소개</h3>
-        </aside>
+    <aside class="sidebar1">
+      <h3>자기소개</h3>
+    </aside>
 
-        <aside class="sidebar2">
-            <h3>기술 스택</h3>
-        </aside>
-    </div>
+    <aside class="sidebar2">
+      <h3>기술 스택</h3>
+    </aside>
+  </div>
 
+  <h1>기술 스택</h1>
+  <div class="layout2">
+    <main>
+      <section>
+        <h2>프로그래밍 언어</h2>
+        <ul>
+          <li>HTML</li>
+          <li>Java</li>
+          <li>JavaScript</li>
+        </ul>
+      </section>
 
-<!--두 번째 레이아웃, 기술 스택(즉, 사용하는 언어, 개발환경 등.)-->
-    <br><br>
-    <h1>기술 스택</h1>
-    <div class="layout2">
-        <main>
-            <section>
-                <h2>좋아하는 프로그래밍 언어</h2>
-                <h3>Programing Languages</h3>
-                <ul>
-                    <li>HTML</li>
-                    <li>Java</li>
-                    <li>JavaScript</li>
-                </ul>
-            </section>
+      <section>
+        <h2>Frontend</h2>
+        <ul>
+          <li>HTML/CSS</li>
+          <li>React</li>
+        </ul>
+      </section>
 
-            <section>
-                <h2>Frontend</h2>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>React</li>
-                </ul>
-            </section>
+      <section>
+        <h2>Backend</h2>
+        <ul>
+          <li>현재 없음</li>
+        </ul>
+      </section>
 
-            <section>
-            <h2>Backend</h2>
-                <ul>
-                    <li>없음</li>
-                </ul>
-            </section>
+      <section>
+        <h2>Database</h2>
+        <ul>
+          <li>HeidiSQL</li>
+        </ul>
+      </section>
 
-            <section>
-                <h2>Database</h2>
-                <ul>
-                    <li>HeidiSQL</li>
-                </ul>
-            </section>
+      <section>
+        <h2>Tools</h2>
+        <ul>
+          <li>Git/GitHub</li>
+          <li>Figma</li>
+        </ul>
+      </section>
 
-            <section>
-                <h2>Tools</h2>
-                <ul>
-                    <li>Github</li>
-                    <li>Figma</li>
-                </ul>
-            </section>
+      <section>
+        <h2>IDE</h2>
+        <ul>
+          <li>Eclipse</li>
+          <li>Visual Studio Code</li>
+          <li>Android Studio</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
-            <section>
-                <h2>IDE</h2>
-                <ul>
-                    <li>Eclipse</li>
-                    <li>Visual Studio Code</li>
-                    <li>Android Studio</li>
-                </ul>
-            </section>
+  <h1>프로젝트 경험</h1>
+  <div class="layout3">
+    <main>
+      <section>
+        <h2>없습니다</h2>
+        <p>하지만 앞으로 다양한 프로젝트에 참여할 계획입니다!</p>
+      </section>
+    </main>
+  </div>
 
-        </main>
-    </div>
+  <h1>학업 성과 및 수강 과목</h1>
+  <div class="layout4">
+    <main>
+      <section>
+        <h2>학업 성과</h2>
+        <ul>
+          <li><b>1학년</b> - Frontend Programming<br>수강: 완료 / 점수: 미흡</li>
+          <li><b>2학년</b> - Frontend Programming<br>수강: 완료 / 점수: 매우 미흡 😅</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
-
-
-<!--세 번째 레이아웃, 프로젝트 경험(없지않나?)-->
-    <br><br>
-    <h1>프로젝트 경험</h1>
-    <div class="layout3">
-        <main>
-            <section>
-                <h2>없습니다</h2>
-            </section>
-        </main>
-    </div>
-
-
-
-<!--네 번째 레이아웃, 학업 성과 및 수강 과목-->
-    <br><br>
-    <h1>학업 성과, 수강 과목</h1>
-    <div class="layout4">
-        <main>
-            <section>
-                <h2>학업 성과</h2>
-                <ul>
-                    <h3>1학년</h3>
-                    <li>Frontend Programming</li>
-                    수강: 완벽
-                    점수: 망함
-                    <br><br>
-                    <h3>2학년</h3>
-                    <li>Frontend Programming</li>
-                    수강: 완벽
-                    점수: 진짜 망함;
-                </ul>
-            </section>
-        </main>
-    </div>
-
-<footer>
-        &copy; Thank you for reading to my writing!
-    </footer>
+  <footer>
+    &copy; 2025 Cherta4242 | 감사합니다 :)
+  </footer>
 </body>
 </html>
