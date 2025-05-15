@@ -9,12 +9,27 @@
             display: flex;
             margin-top: 20px;
         }
+        .layout2 {
+            display: flex;
+            margin-top: 20px;
+        }
+        .layout3{
+            display: flex;
+            margin-top: 20px;
+        }
+        .layout4{
+            display: flex;
+            margin-top: 20px;
+        }
         body {
             font-family: 'Arial', sans-serif;
             background-color: #e9ecef;
             color: #333;
             margin: 0;
             padding: 0;
+        }
+        h1{
+            text-align: center;
         }
         .header1 {
             background-color: black;
@@ -39,7 +54,19 @@
         .sidebar1 {
             position: fixed;
             top: auto;
-            left: 30px;
+            left: 50px;
+            color: white;
+            background-color: blue;
+            border-radius: 25px;
+        }
+        .sidebar2 {
+            position: fixed;
+            top: auto;
+            left: 50px;
+            color: white;
+            background-color: #330099;
+            border-radius: 25px;
+            
         }
         footer {
             text-align: center;
@@ -51,14 +78,55 @@
             color: #330099;
         }
     </style>
+
+    <script>
+        // 사이드바 상태를 토글하는 함수 정의
+        function toggleSidebar() {
+        // 클래스명이 .sidebar1인 요소를 가져와 변수에 저장
+        const sidebar1 = document.querySelector(".sidebar1");
+
+        // 클래스명이 .sidebar2인 요소를 가져와 변수에 저장
+        const sidebar2 = document.querySelector(".sidebar2");
+
+        // 클래스명이 .layout2인 요소를 가져와 변수에 저장
+        const layout2 = document.querySelector(".layout2");
+
+        // layout2 요소의 현재 뷰포트(top) 위치 값을 가져옴
+        // 이 값이 작아질수록 화면 상단에 가까워짐 (스크롤이 아래로 내려갔다는 의미)
+        const layout2Top = layout2.getBoundingClientRect().top;
+
+        // layout2의 top 위치가 100px보다 위(작을 경우)라면
+        if (layout2Top < 100) {
+            // sidebar1은 숨기고
+            sidebar1.style.display = "none";
+            // sidebar2는 보이게 설정
+            sidebar2.style.display = "block";
+        } else {
+            // 반대로 layout2가 아직 화면 위쪽에 도달하지 않았다면
+            // sidebar1은 보이고
+            sidebar1.style.display = "block";
+            // sidebar2는 숨김
+            sidebar2.style.display = "none";
+        }
+        }
+
+        // 페이지에서 스크롤이 발생할 때마다 toggleSidebar 함수 실행
+        window.addEventListener("scroll", toggleSidebar);
+
+        // 페이지가 처음 로딩될 때도 toggleSidebar를 한 번 실행해서 초기 상태 반영
+        window.addEventListener("DOMContentLoaded", toggleSidebar);
+      </script>
 </head>
     
+
+
 <body>
+<!--첫 번째 레이아웃, 자기소개 칸-->
     <header class="header1">
-        <h1>Cherta라고 합니다!</h1>
+        <h1>PortPolio</h1>
     </header>
 
-
+    <h1><b>간단한 자기소개</b></h1>
     <div class="layout1">
         <main>
             <section>
@@ -70,7 +138,7 @@
             <section>
                 <h2>관심 분야</h2>
                 <ul>
-                    <li>게임(개발 아닙니다. 오해하시면 곤란합니다.)</li>
+                    <li>게임</li>
                     <li>웹 개발</li>
                     <li>UI/UX 디자인</li>
                 </ul>
@@ -80,39 +148,139 @@
             <h2>개인 정보</h2>
                 <ul>
                     <li>성별: 남</li>
-                    <li>이름: 비밀★</li>
-                    <li>연락처: 비밀☆</li>
-                    <li>나이: 비밀★</li>
+                    <li>이름: 장진우</li>
+                    <li>연락처: 010-XXXX-XXXX</li>
+                    <li>나이: 24</li>
                 </ul>
             </section>
 
             <section>
-                <h2>좋아하는 것들?</h2>
+                <h2>좋아하는 것</h2>
                 <ul>
-                    <li>마찬가지로 <b>게임</b>!</li>
-                    <li>색깔이라면 아마 <b><span class="likecolor">이런 색깔?</span></b></li>
-                    <li>유튜버 <b>김블루</b>와  가수 <b>Hebi</b>를 좋아하고요</li>
-                    <li>매일마다 다른 <b>새벽의 냄새</b> 라거나?</li>
-                    <li><b>전자기기를</b> 좋아한답니다</li>
+                    <li><b>게임</b></li>
+                    <li><b><span class="likecolor">이런 색깔</span></b></li>
+                    <li>유튜버 <b>김블루</b>와  가수 <b>Hebi</b></li>
+                    <li><b>향수</b></li>
+                    <li><b>전자기기</b></li>
                 </ul>
             </section>
 
             <section>
-                <h2>싫어하는 것들!</h2>
+                <h2>싫어하는 것</h2>
                 <ul>
-                    <li>음식중엔 <b>표고버섯과 조개류</b>!</li>
-                    <li>그리고 <b>타인을 싫어해서 까내리는 사람들</b>을 싫어한답니다.</li>
+                    <li><b>표고버섯과 조개류</b></li>
+                    <li>난잡한 공간</li>
                 </ul>
             </section>
         </main>
 
         <aside class="sidebar1">
-            <h3>사이드바</h3>
+            <h3>자기소개</h3>
+        </aside>
+
+        <aside class="sidebar2">
+            <h3>기술 스택</h3>
         </aside>
     </div>
 
-    <footer>
-        &copy; Thank you for reading my writing!
+
+<!--두 번째 레이아웃, 기술 스택(즉, 사용하는 언어, 개발환경 등.)-->
+    <br><br>
+    <h1>기술 스택</h1>
+    <div class="layout2">
+        <main>
+            <section>
+                <h2>좋아하는 프로그래밍 언어</h2>
+                <h3>Programing Languages</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Frontend</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>React</li>
+                </ul>
+            </section>
+
+            <section>
+            <h2>Backend</h2>
+                <ul>
+                    <li>없음</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Database</h2>
+                <ul>
+                    <li>HeidiSQL</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Tools</h2>
+                <ul>
+                    <li>Github</li>
+                    <li>Figma</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>IDE</h2>
+                <ul>
+                    <li>Eclipse</li>
+                    <li>Visual Studio Code</li>
+                    <li>Android Studio</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+
+
+<!--세 번째 레이아웃, 프로젝트 경험(없지않나?)-->
+    <br><br>
+    <h1>프로젝트 경험</h1>
+    <div class="layout3">
+        <main>
+            <section>
+                <h2>없습니다</h2>
+            </section>
+        </main>
+    </div>
+
+
+
+<!--네 번째 레이아웃, 학업 성과 및 수강 과목-->
+    <br><br>
+    <h1>학업 성과, 수강 과목</h1>
+    <div class="layout4">
+        <main>
+            <section>
+                <h2>학업 성과</h2>
+                <ul>
+                    <h3>1학년</h3>
+                    <li>Frontend Programming</li>
+                    수강: 완벽
+                    점수: 망함
+                    <br><br>
+                    <h3>2학년</h3>
+                    <li>Frontend Programming</li>
+                    수강: 완벽
+                    점수: 진짜 망함;
+                </ul>
+            </section>
+        </main>
+    </div>
+
+<footer>
+        &copy; Thank you for reading to my writing!
     </footer>
 </body>
 </html>
