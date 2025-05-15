@@ -3,79 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>장진우의 포트폴리오</title>
+  <title>Cherta4242's Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Nanum Gothic', sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-      color: #212529;
+      background-color: #f5f7fa;
+      color: #333;
       display: flex;
     }
+
     /* 사이드바 */
     nav {
       width: 220px;
       min-height: 100vh;
-      background-color: #343a40;
+      background-color: #330099;
       padding: 2rem 1rem;
       position: fixed;
       top: 0;
       left: 0;
       color: white;
     }
+
     nav h1 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
       text-align: center;
     }
+
     nav ul {
       list-style: none;
       padding: 0;
     }
+
     nav ul li {
       margin-bottom: 1rem;
     }
+
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
+
     nav ul li a:hover {
       text-decoration: underline;
     }
 
-    /* 본문 */
-    main {
-      margin-left: 240px; /* 사이드바 넓이 + 여유 */
-      max-width: 960px;
+    /* 본문 전체 마진 */
+    .content {
+      margin-left: 240px;
+      max-width: 1000px;
       padding: 2rem;
     }
-    section {
-      margin-bottom: 3rem;
+
+    header.header1 {
+      background: linear-gradient(to right, #330099, #6b5b95);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
     }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.2rem;
+      color: white;
+    }
+
     h2 {
-      border-bottom: 2px solid #343a40;
-      padding-bottom: 0.5rem;
+      border-left: 5px solid #330099;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      color: #330099;
     }
+
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
     ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .likecolor {
+      color: #330099;
+      font-weight: bold;
     }
 
     footer {
       margin-left: 240px;
-      padding: 1rem;
-      background-color: #343a40;
-      color: white;
       text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      color: #555;
     }
 
-    /* 반응형 */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -86,7 +129,7 @@
         min-height: auto;
         text-align: center;
       }
-      main, footer {
+      .content, footer {
         margin-left: 0;
         padding: 1rem;
       }
@@ -97,64 +140,156 @@
 
   <!-- 사이드바 -->
   <nav>
-    <h1>장진우 포트폴리오</h1>
+    <h1>Cherta4242 포트폴리오</h1>
     <ul>
       <li><a href="#intro">자기소개</a></li>
+      <li><a href="#misc">기타 정보</a></li>
       <li><a href="#skills">기술 스택</a></li>
       <li><a href="#projects">프로젝트</a></li>
-      <li><a href="#education">수강 과목</a></li>
-      <li><a href="#misc">기타 정보</a></li>
+      <li><a href="#education">학업 성과</a></li>
     </ul>
   </nav>
 
   <!-- 본문 -->
-  <main>
+  <div class="content">
+    <header class="header1">
+      <h1>CHERTA4242's Portfolio</h1>
+      <p>열정적인 웹 개발자 지망생의 이야기</p>
+    </header>
+
     <section id="intro">
       <h2>자기소개</h2>
-      <p>게임을 좋아하는 평범한 대학생입니다. 항상 모든 사람과 웃으며 지내는 것을 좋아합니다.</p>
+      <p>게임을 좋아하는 평범한 대학생입니다. 사람들과 웃으며 지내는 것을 좋아합니다.</p>
     </section>
 
-    <section id="skills">
-      <h2>기술 스택</h2>
+    <section>
+      <h2>관심 분야</h2>
       <ul>
-        <li><strong>프로그래밍 언어:</strong> Java, JavaScript, HTML</li>
-        <li><strong>프론트엔드:</strong> HTML, CSS, React</li>
-        <li><strong>백엔드:</strong> 없음</li>
-        <li><strong>데이터베이스:</strong> HeidiSQL</li>
-        <li><strong>도구:</strong> GitHub, Figma</li>
-        <li><strong>IDE:</strong> Eclipse, Visual Studio Code, Android Studio</li>
+        <li>게임</li>
+        <li>웹 개발</li>
+        <li>UI/UX 디자인</li>
       </ul>
     </section>
 
-    <section id="projects">
-      <h2>프로젝트 경험</h2>
-      <p>현재까지 참여한 프로젝트는 없습니다.</p>
+    <section>
+        <h2>좋아하는 것</h2>
+        <ul>
+            <li><b>게임</b></li>
+            <li><span class="likecolor">이런 색깔</span></li>
+            <li>유튜버 <b>김블루</b>와 가수 <b>Hebi</b></li>
+            <li><b>향수</b>, <b>전자기기</b></li>
+        </ul>
     </section>
+    
+    <section>
+        <h2>싫어하는 것</h2>
+        <ul>
+            <li><b>표고버섯, 조개류</b></li>
+            <li>난잡한 공간</li>
+        </ul>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <section id="education">
-      <h2>학업 성과 및 수강 과목</h2>
-      <ul>
-        <li><strong>1학년:</strong> Frontend Programming - 수강 완료, 성적 미흡</li>
-        <li><strong>2학년:</strong> Frontend Programming - 수강 완료, 성적 미흡</li>
-      </ul>
-    </section>
 
     <section id="misc">
       <h2>기타 정보</h2>
       <ul>
-        <li><strong>성별:</strong> 남</li>
-        <li><strong>이름:</strong> 장진우</li>
-        <li><strong>연락처:</strong> 010-XXXX-XXXX</li>
-        <li><strong>나이:</strong> 24</li>
-        <li><strong>좋아하는 것:</strong> 게임, 특정 색상(#330099), 유튜버 김블루, 가수 Hebi, 향수, 전자기기</li>
-        <li><strong>싫어하는 것:</strong> 표고버섯과 조개류, 난잡한 공간</li>
+        <li>성별: 남</li>
+        <li>이름: 장진우</li>
+        <li>연락처: 010-XXXX-XXXX</li>
+        <li>나이: 24</li>
       </ul>
     </section>
-  </main>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <section id="skills">
+      <h2>기술 스택</h2>
+
+      <h3>프로그래밍 언어</h3>
+      <ul>
+        <li>HTML</li>
+        <li>Java</li>
+        <li>JavaScript</li>
+      </ul>
+
+      <h3>Frontend</h3>
+      <ul>
+        <li>HTML/CSS</li>
+        <li>React</li>
+      </ul>
+
+      <h3>Backend</h3>
+      <ul>
+        <li>현재 없음</li>
+      </ul>
+
+      <h3>Database</h3>
+      <ul>
+        <li>HeidiSQL</li>
+      </ul>
+
+      <h3>Tools</h3>
+      <ul>
+        <li>Git/GitHub</li>
+        <li>Figma</li>
+      </ul>
+
+      <h3>IDE</h3>
+      <ul>
+        <li>Eclipse</li>
+        <li>Visual Studio Code</li>
+        <li>Android Studio</li>
+      </ul>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <section id="projects">
+      <h2>프로젝트 경험</h2>
+      <p>없습니다. 하지만 앞으로 다양한 프로젝트에 참여할 계획입니다!</p>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <section id="education">
+      <h2>학업 성과 및 수강 과목</h2>
+      <ul>
+        <li><b>1학년</b> - Frontend Programming<br>수강: 완료 / 점수: 미흡</li>
+        <li><b>2학년</b> - Frontend Programming<br>수강: 완료 / 점수: 매우 미흡 😅</li>
+      </ul>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  </div>
 
   <footer>
-    &copy; 2025 장진우. 모든 권리 보유.
+    &copy; 작성자: Cherta4242 | 감사합니다 :)
   </footer>
 
+  
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute("id");
+        const navLink = document.querySelector(`nav ul li a[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove("active"));
+          if (navLink) navLink.classList.add("active");
+        }
+      });
+    }, {
+      threshold: 0.6
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
