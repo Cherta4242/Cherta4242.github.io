@@ -134,6 +134,24 @@
         padding: 1rem;
       }
     }
+      #toTopBtn {
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        z-index: 100;
+        background: linear-gradient(to right, #330099, #6b5b95);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none; /* 처음엔 숨김 */
+        font-size: 14px;
+      }
+    #toTopBtn:hover {
+      background-color: #333;
+    }
+
   </style>
 </head>
 <body>
@@ -152,14 +170,15 @@
 
   <!-- 본문 -->
   <div class="content">
-    <header class="header1">
-      <h1>CHERTA4242's Portfolio</h1>
-      <p>열정적인 웹 개발자 지망생의 이야기</p>
-    </header>
+      <header class="header1">
+          <h1>CHERTA4242's Portfolio</h1>
+          <p>열정적인 웹 개발자 지망생의 이야기</p>
+      </header>
+
 
     <section id="intro">
       <h2>자기소개</h2>
-      <p>게임을 좋아하는 평범한 대학생입니다. 사람들과 웃으며 지내는 것을 좋아합니다.</p>
+      <p>게임을 좋아하는 평범한 대학생입니다. 다른 사람들과 웃으며 지내는 것을 좋아합니다.</p>
     </section>
 
     <section>
@@ -189,7 +208,7 @@
         </ul>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 
     <section id="misc">
       <h2>기타 정보</h2>
@@ -200,6 +219,7 @@
         <li>나이: 24</li>
       </ul>
     </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br>
 
 
@@ -243,6 +263,8 @@
       </ul>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 
     <section id="projects">
@@ -250,22 +272,47 @@
       <p>없습니다. 하지만 앞으로 다양한 프로젝트에 참여할 계획입니다!</p>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 
     <section id="education">
-      <h2>학업 성과 및 수강 과목</h2>
+      <h2>전공 관련 수강 과목 및 성과</h2>
       <ul>
-        <li><b>1학년</b> - Frontend Programming<br>수강: 완료 / 점수: 미흡</li>
-        <li><b>2학년</b> - Frontend Programming<br>수강: 완료 / 점수: 매우 미흡 😅</li>
+        <h3 style="margin-bottom: 20px; font-size: 20px;">2024(1학년) / 1학기</h3>
+        <li style="margin-bottom: 10px; font-size: 16px;"><b>Frontend Programming</b><br><b>수강</b>: 완료 / <b>점수</b>: A</li>
+        <li style="margin-bottom: 10px; font-size: 16px;"><b>사물인터넷 프로그래밍</b><br><b>수강</b>: 완료 / <b>점수</b>: A</li>
+        <li style="margin-bottom: 10px; font-size: 16px;"><b>컴퓨팅 사고력과 코딩</b><br><b>수강</b>: 완료 / <b>점수</b>: B+</li>
+        <li style="margin-bottom: 10px; font-size: 16px;"><b>인공지능 입문</b><br><b>수강</b>: 완료 / <b>점수</b>: B+</li>
+        <li style="margin-bottom: 10px; font-size: 16px;"><b>C 프로그래밍</b><br><b>수강</b>: 완료 / <b>점수</b>: C+</li>
+        <br>
+
+        <h3>2024(1학년) / 2학기</h3>
+        <li><b>Java Programming</b><br>수강: 완료 / 점수: B+</li>
+        <li><b>Opensource Software</b><br>수강: 완료 / 점수: B+</li>
+        <li><b>Frontend Programming2</b><br>수강: 완료 / 점수: B</li>
+        <li><b>Data Base</b><br>수강: 완료 / 점수: B</li>
+        <br>
+
+        <h3>2025(2학년) / 1학기</h3>
+        <li>학기 중</li>
+        <br>
+
+        <h3>2025(2학년) / 2학기</h3>
+        <li>학기 예정</li>
+        <br>
+
       </ul>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 
   </div>
 
   <footer>
     &copy; 작성자: Cherta4242 | 감사합니다 :)
+
+    <button id="toTopBtn" title="맨 위로 이동">↑ Top</button>
   </footer>
 
   
@@ -290,6 +337,26 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    const toTopBtn = document.getElementById("toTopBtn");
+
+    // 스크롤 시 버튼 표시/숨김
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        toTopBtn.style.display = "block";
+      } else {
+        toTopBtn.style.display = "none";
+      }
+    };
+
+    // 버튼 클릭 시 맨 위로 스크롤
+    toTopBtn.onclick = function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+
   </script>
 </body>
 </html>
