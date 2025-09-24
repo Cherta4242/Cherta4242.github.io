@@ -14,7 +14,7 @@
 간단한 화면 레이아웃 예시입니다:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/9cadcdac-7c76-4739-b0ef-d69f6398cf1d" width="300" />
+  <img width="498" height="704" alt="image" src="https://github.com/user-attachments/assets/573e11b4-5584-4048-a91f-72538cbd625b" />
 </div>
 
 > 화면 구성: 브라우저에 데이터를 직관적으로 보여줄 수 있는 레이아웃 구상.
