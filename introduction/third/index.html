@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>성범죄 피해자 성별 및 연령별 통계</title>
+<style>
+  /* 전체 배경 및 폰트 설정 */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 본문 폰트 */
+    background-color: #f5f7fa; /* 연한 회색 배경 */
+    margin: 0; /* 기본 margin 제거 */
+    padding: 20px; /* 여백 */
+    display: flex; /* 플렉스 박스로 정렬 */
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+
+  /* 제목 스타일 */
+  h1 {
+    color: #2c3e50; /* 진한 회색/청색 계열 */
+    font-size: 2em;
+    margin-bottom: 20px; /* 아래 여백 */
+  }
+
+  /* 버튼 스타일 */
+  #load {
+    background-color: #3498db; /* 파란색 배경 */
+    color: white; /* 글자 흰색 */
+    border: none; /* 테두리 제거 */
+    padding: 12px 24px; /* 버튼 내부 여백 */
+    font-size: 1em;
+    border-radius: 8px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스 커서 포인터로 변경 */
+    margin-bottom: 20px; /* 아래 여백 */
+    transition: background-color 0.3s, transform 0.2s; /* 호버 시 부드러운 효과 */
+  }
+
+  #load:hover {
+    background-color: #2980b9; /* 호버 시 진한 파랑 */
+    transform: scale(1.05); /* 살짝 확대 */
+  }
+
+  /* 테이블 래퍼 */
+  #result {
+    width: 100%; /* 래퍼 div 폭 100% */
+    overflow-x: auto; /* 테이블이 너무 크면 가로 스크롤 */
+  }
+
+  /* 테이블 스타일 */
+  table {
+    border-collapse: collapse; /* 테두리 겹침 제거 */
+    width: 100%; /* 부모 안에서 폭 100% */
+    max-width: 1200px; /* 최대폭 제한 */
+    margin: 0 auto; /* 중앙 정렬 */
+    background-color: #ecf0f1; /* 연한 회색 배경 */
+    border-radius: 12px; /* 둥근 모서리 */
+    overflow: hidden; /* 안쪽 넘침 숨김 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 그림자 */
+    text-align: center; /* 셀 내부 글자 가운데 정렬 */
+  }
+
+  /* 테이블 헤더/셀 스타일 */
+  th, td {
+    padding: 12px; /* 셀 내부 여백 */
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: 1px solid #bdc3c7; /* 셀 아래 테두리 */
+  }
+
+  /* 테이블 헤더 스타일 */
+  th {
+    background-color: #3498db; /* 헤더 파란색 */
+    color: white; /* 글자 흰색 */
+    font-weight: bold; /* 글자 굵게 */
+  }
+
+  /* 테이블 캡션(연도) */
+  caption {
+    caption-side: top; /* 캡션 위쪽 표시 */
+    font-size: 1.2em; 
+    margin-bottom: 10px; /* 아래 여백 */
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<h1>성범죄 피해자 성별 및 연령별 통계</h1>
+<h2>모바일앱 프로젝트 수업 실습</h2>
+<button id="load">데이터 불러오기</button>
+<div id="result"></div> <!-- 테이블 결과가 들어갈 div -->
+
+<script>
+document.getElementById('load').addEventListener('click', async () => {
+  // API 키와 URL 설정
+  const SERVICE_KEY = '11ee834ae731a05cadb6e6d12e3dca2970518deea9a11973dc9010aa72a17e78';
+  const url = `https://api.odcloud.kr/api/15066804/v1/uddi:1e5cf279-551e-47fb-a321-ef61430cd796?page=1&perPage=20&returnType=JSON&serviceKey=${encodeURIComponent(SERVICE_KEY)}`;
+  
+  try {
+    // API 호출
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP 오류 ' + res.status); // 오류 발생 시 처리
+    const json = await res.json(); // JSON 파싱
+    const data = json.data[0]; // 배열 안 첫 번째 객체 선택
+
+    const resultDiv = document.getElementById('result'); // 결과 div 선택
+
+    // 연령대 배열 (출력 순서)
+    const ages = ['6세이하','12세이하','15세이하','20세이하','30세이하','40세이하','50세이하','60세이하','60세초과','미상'];
+
+    // 테이블 헤더 생성 및 연도 캡션 표시
+    let table = `<table><caption>연도: ${data.연도}</caption><tr><th>연령대</th><th>남자</th><th>여자</th><th>기타/불상</th></tr>`;
+    
+    // 각 연령대별 데이터 테이블 행 생성
+    ages.forEach(age => {
+      const maleKey = '남자_' + age; // 남자 키 생성
+      const femaleKey = '여자_' + age; // 여자 키 생성
+      table += `<tr>
+                  <td>${age}</td> <!-- 연령대 표시 -->
+                  <td>${data[maleKey] || 0}</td> <!-- 남자 값, 없으면 0 -->
+                  <td>${data[femaleKey] || 0}</td> <!-- 여자 값, 없으면 0 -->
+                  <td>${age === '미상' ? data['불상'] || 0 : ''}</td> <!-- '미상' 연령대만 불상 표시 -->
+                </tr>`;
+    });
+
+    table += '</table>'; // 테이블 종료
+    resultDiv.innerHTML = table; // div에 테이블 삽입
+
+  } catch (err) {
+    console.error(err); // 콘솔에 오류 출력
+    alert(err.message); // 사용자에게 오류 알림
+  }
+});
+</script>
+</body>
+</html>
