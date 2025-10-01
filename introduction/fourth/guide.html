@@ -6,29 +6,72 @@
   <title>보증안내</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 min-h-screen flex flex-col">
 
-  <header class="bg-blue-700 text-white p-4 text-center font-bold">
-    보증안내
-  </header>
+  <nav class="bg-blue-700 text-white shadow-lg sticky top-0 z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a class="text-xl font-extrabold tracking-wider" href="index.html">신용보증기금</a>
+      
+      <div class="space-x-4 hidden md:flex">
+        <a class="hover:text-blue-200 transition duration-150" href="index.html">홈</a>
+        <a class="hover:text-blue-200 transition duration-150 font-bold" href="guide.html">보증안내</a>
+        <a class="hover:text-blue-200 transition duration-150" href="service.html">고객센터</a>
+        <a class="hover:text-blue-200 transition duration-150" href="recruit.html">채용정보</a>
+        <a class="hover:text-blue-200 transition duration-150" href="info.html">정보공개</a>
+      </div>
+      
+      <button id="menu-button" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-600">
+        <a class="block py-2 px-4 text-sm hover:bg-blue-500" href="index.html">홈</a>
+        <a class="block py-2 px-4 text-sm bg-blue-500 font-bold" href="guide.html">보증안내</a>
+        <a class="block py-2 px-4 text-sm hover:bg-blue-500" href="service.html">고객센터</a>
+        <a class="block py-2 px-4 text-sm hover:bg-blue-500" href="recruit.html">채용정보</a>
+        <a class="block py-2 px-4 text-sm hover:bg-blue-500" href="info.html">정보공개</a>
+    </div>
+  </nav>
 
-  <main class="p-6 space-y-4">
-    <section class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">보증상품 안내</h2>
-      <p>신용보증기금은 기업의 성장 단계에 맞춰 다양한 보증상품을 제공합니다.</p>
+  <main class="p-8 flex-grow container mx-auto max-w-4xl space-y-8">
+    <section class="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-blue-500">
+      <h2 class="text-2xl font-bold mb-3 text-blue-700">보증상품 안내</h2>
+      <p class="text-gray-700 leading-relaxed">
+        신용보증기금은 창업 기업부터 성장 단계별 기업까지, 대한민국의 모든 중소기업의 성장을 지원하기 위해 
+        다양하고 맞춤형의 <span class="font-semibold text-blue-600">보증상품을 제공</span>합니다. 
+        기업의 특성과 필요에 맞는 상품을 찾아보세요.
+      </p>
     </section>
-    <section class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">보증 절차</h2>
-      <ol class="list-decimal pl-5">
-        <li>보증 신청</li>
-        <li>신용평가</li>
-        <li>보증 승인 및 발급</li>
+    
+    <section class="bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">보증 절차</h2>
+      <ol class="list-decimal pl-6 space-y-3 text-lg text-gray-700 font-medium">
+        <li class="pl-2 border-l-4 border-blue-200">
+          <span class="text-blue-600 font-bold">보증 신청:</span> 온라인 또는 지점 방문을 통해 보증을 신청합니다.
+        </li>
+        <li class="pl-2 border-l-4 border-blue-200">
+          <span class="text-blue-600 font-bold">신용평가:</span> 기업의 신용도, 경영 상황, 사업성 등을 종합적으로 평가합니다.
+        </li>
+        <li class="pl-2 border-l-4 border-blue-200">
+          <span class="text-blue-600 font-bold">보증 승인 및 발급:</span> 평가 결과를 바탕으로 보증 한도를 결정하고 보증서를 발급합니다.
+        </li>
       </ol>
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-white p-4 text-center text-sm">
-    <a href="index.html" class="underline">홈으로</a>
+  <footer class="bg-blue-900 text-white p-4 text-center text-sm mt-auto">
+    <p class="mb-1 font-bold">신용보증기금 | 대표전화: 1588-6565</p>
+    <small>&copy; 2025 KODIT. All Rights Reserved.</small>
   </footer>
+
+  <script>
+      const button = document.getElementById('menu-button');
+      const menu = document.getElementById('mobile-menu');
+
+      button.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+      });
+  </script>
 </body>
 </html>
