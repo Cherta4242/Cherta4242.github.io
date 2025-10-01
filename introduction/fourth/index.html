@@ -8,11 +8,10 @@
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .hero {
-      /* 로컬 파일명 'flower.jpg'를 사용하여 경로를 수정했습니다. */
-      /* HTML 파일과 같은 위치에 flower.jpg 파일이 있어야 합니다. */
+      /* flower.jpg 이미지 배경 적용 및 오버레이 */
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('flower.jpg') no-repeat center/cover;
       color: white;
-      padding: 100px 20px; /* 패딩 조정 */
+      padding: 100px 20px;
       text-align: center;
     }
     .hero h1 {
@@ -43,7 +42,7 @@
           <li class="nav-item"><a class="nav-link" href="guide.html">보증안내</a></li>
           <li class="nav-item"><a class="nav-link" href="service.html">고객센터</a></li>
           <li class="nav-item"><a class="nav-link" href="recruit.html">채용정보</a></li>
-          <li class="nav-item"><a class="nav-link" href="info.html">정보공개</a></li>
+          <li class="nav-item"><a class="nav-link" href="info.html">회사 정보</a></li> 
         </ul>
       </div>
     </div>
@@ -99,15 +98,22 @@
           </a>
         </div>
         <div class="col-6 col-md-3">
-          <a href="notice.html" class="text-decoration-none text-dark">
+          <a href="info.html" class="text-decoration-none text-dark">
             <div class="card text-center shadow-sm card-hover h-100">
               <div class="card-body">
-                <h5 class="fw-bold">공지사항</h5>
-                <p class="small">중요한 공지 및 뉴스</p>
+                <h5 class="fw-bold">회사 정보</h5>
+                <p class="small">설립 목적 및 연혁</p>
               </div>
             </div>
           </a>
         </div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <h2 class="fw-bold mb-4 text-center">신용보증기금 소개 영상</h2>
+      <div class="ratio ratio-16x9 shadow-lg rounded">
+        <iframe src="https://www.youtube.com/embed/d-a0209-a1b1?rel=0" title="신용보증기금 소개 영상" allowfullscreen></iframe>
       </div>
     </section>
 
