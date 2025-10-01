@@ -12,18 +12,24 @@
   - 신용보증기금<br>
   - 구글<br>
   - Samsung SDS<br>
-  중 신용보증기금으로 선정
-</P>
-<br>
-<h2>2. 회사 앱 만들기</h2>
+</P><br>
 <p>
-  1. 홈(index.html)화면 만들기
+  이중 신용보증기금으로 선정
+</p>
+<br>
+
+<h2>2. 회사 앱 만들기</h2>
+<h3>  1. 홈(index.html)화면 만들기</h3>
+<p>
   <img width="417" height="875" alt="image" src="https://github.com/user-attachments/assets/dca030a1-aea7-46bf-a7dc-1a01aaad5473" /><br>
   <img width="421" height="877" alt="image" src="https://github.com/user-attachments/assets/a64bfe12-664b-43fe-ac7f-41f787130292" /><br>
 </p><br>
+
+
+<h3>  2. 기능구현 (보증안내, 고객센터, 채용정보, 정보공개 등)</h3>
+<h4>- 연결 페이지 만들기</h4>
+<br>
 <p>
-  2. 기능구현 (보증안내, 고객센터, 채용정보, 정보공개 등)
-  - 연결 페이지 만들기<br>
   2-1. 보증안내<br>
   <img width="417" height="449" alt="image" src="https://github.com/user-attachments/assets/d48097a0-a704-4621-b8b1-db9f4eb62afc" />
 <br>
@@ -37,11 +43,12 @@
 <img width="421" height="403" alt="image" src="https://github.com/user-attachments/assets/67b05b49-6933-4667-8216-92005c18f945" />
 <br>
 </p><br>
-<h2>3. CSS에 Framework 추가</h2>
+
+<h2>3. CSS에 Framework 추가</h2><br>
 <p>
-  - 코딩을 하면서 이미 추가해놓기<br>
+  - 코딩을 하면서 추가완료<br>
   <img width="1008" height="211" alt="image" src="https://github.com/user-attachments/assets/504d5d07-8dda-4ea4-ab82-3200c708b4ed" />
 <br>
 </p><br>
 
-<h3>이상입니다.</h3>
+##이상입니다.
